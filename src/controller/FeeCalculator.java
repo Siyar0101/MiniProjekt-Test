@@ -36,7 +36,7 @@ public class FeeCalculator {
 
 		int discountPercentage = (hasElectric ? 20 : 0);
 
-		if (seniority > 3) {
+		if (seniority >= 3) {
 			discountPercentage += 5;
 		}
 
@@ -82,7 +82,7 @@ public class FeeCalculator {
 			green = true;
 			for (Vehicle v : vv) {
 				if (v != null) {
-					green = green || v.isElectric();
+					green = green && v.isElectric();
 				} else {
 					throw new IllegalArgumentException();
 				}

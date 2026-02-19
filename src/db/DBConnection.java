@@ -15,7 +15,7 @@ public class DBConnection {
 	private static final String SERVER_ADDRESS = "localhost";
 	private static final int SERVER_PORT = 1433;
 	private static final String USERNAME = "sa";
-	private static final String PASSWORD = "secret2025*";
+	private static final String PASSWORD = "1234567";
 
 	private DBConnection() throws DataAccessException {
 		connect();

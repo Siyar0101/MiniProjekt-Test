@@ -57,9 +57,12 @@ public class ParkingSpotDB implements ParkingSpotDAO {
 	public List<ParkingSpot> findAvailable(LocalDate fromDate, LocalDate toDate) throws DataAccessException {
 
 		List<ParkingSpot> pp = null;
-		if (fromDate.compareTo(toDate) > 0) {
-			pp = new ArrayList<>(); // return empty list
-		} else {
+		if (fromDate == null || toDate == null)
+		    throw new IllegalArgumentException("Dates must not be null");
+
+		if (fromDate.isAfter(toDate))
+		    throw new IllegalArgumentException("fromDate must not be after toDate");
+{
 			try {
 				selectByAvailability.setDate(1, Date.valueOf(fromDate));
 				selectByAvailability.setDate(2, Date.valueOf(toDate));
