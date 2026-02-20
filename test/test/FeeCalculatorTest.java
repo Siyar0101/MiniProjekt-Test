@@ -31,7 +31,7 @@ public class FeeCalculatorTest {
         });
     }
 
-    // TC4: Valid seniority = 2
+    // TC4: Invalid seniority = 2
     @Test
     void testCalcFee_TC4() {
         double result = fc.calcFee(300, 2, false);
@@ -67,8 +67,7 @@ public class FeeCalculatorTest {
         assertEquals(400 * 0.95, result);
     }
 
-    // TC9: baseMonthlyFee = null (not possible in Java primitives)
-    // We interpret this as: invalid input → IllegalArgumentException
+    // TC9: baseMonthlyFee = null
     @Test
     void testCalcFee_TC9() {
         assertThrows(IllegalArgumentException.class, () -> {
